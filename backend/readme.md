@@ -6,7 +6,7 @@
 **Description:**  
 Creates a new user account.
 
-**Request Body:**
+**Request Body:**  
 Send a JSON object with the following fields:
 
 | Field        | Type   | Required | Description                                 |
@@ -37,7 +37,7 @@ Content-Type: application/json
 - **Body:**
 ```json
 {
-  "message": "User created successfully",
+  "token": "jwt_token_here",
   "user": {
     "_id": "60c72b2f9b1d8e001c8e4b8a",
     "firstName": "John",
@@ -45,7 +45,7 @@ Content-Type: application/json
     "phoneNumber": "01234567890",
     "email": "john.doe@example.com",
     "password": "hashed_password",
-    "sockeId": null,
+    "socketId": null,
     "location": {
       "type": "Point",
       "coordinates": []
@@ -57,10 +57,11 @@ Content-Type: application/json
 
 **Error Responses:**
 
+- **409 Conflict:** User already exists with this email.
 - **400 Bad Request:** Missing or invalid fields.
-- **409 Conflict:** Email or phone number already exists.
 - **500 Internal Server Error:** Server error.
 
 **Notes:**
 - The `location` field is optional at sign up. If not provided, it defaults to type `"Point"` with empty coordinates.
 - Passwords are stored hashed (not shown in response for security).
+- On success, a JWT token is returned in the response.

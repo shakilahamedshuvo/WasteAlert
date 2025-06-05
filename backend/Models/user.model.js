@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const userSchema  = new mongoose.Schema(
   {
     firstName: {
@@ -26,7 +27,7 @@ const userSchema  = new mongoose.Schema(
         required: true,
         minlength: [6, 'Password must be at least 6 characters long'],
     },
-    sockeId:{
+    socketId:{
       type:String,
     },
     // role: {
@@ -34,19 +35,29 @@ const userSchema  = new mongoose.Schema(
     //     enum: ['user', 'team', 'admin'],
     // },
     location: {
-    type: {
-      type: String,
-      enum: ['Point'],
-      // required: true,
-      default: 'Point',
+      type: {
+        type: String,
+        enum: ['Point'],
+        // required: true,
+        default: 'Point',
+      },
+      coordinates: {
+        type: [Number], 
+        // required: true,
+      },
     },
-    coordinates: {
-      type: [Number], 
-      // required: true,
-    },
-  },
   }
 )
+
+userSchema.methods.tokenGenerator =  function (){
+    const token  = jwt.sign({_id:this._id}, process.env.JWT_SECRET, {
+        expiresIn: '1d'
+    });
+    return token;
+}
+userSchema.statics.hashPassword = async function (password){
+      return await bcrypt.hash(password, 10);
+}
 
 const userModel = mongoose.model('User', userSchema);
 module.exports = userModel;
