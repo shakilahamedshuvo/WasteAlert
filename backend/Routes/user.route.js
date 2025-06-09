@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { body } = require('express-validator');
-const { signUpController } = require('../Controller/user.controller');
+const { signUpController, otpVerifyController } = require('../Controller/user.controller');
 
 router.post('/signup', 
     body('firstName').trim().notEmpty().withMessage('First Name is required').isLength({ min: 3 }).withMessage('First Name must be at least 3 characters long'),
@@ -11,5 +11,6 @@ router.post('/signup',
     body('phoneNumber').isLength({ min: 11}).withMessage('Phone number must be at least 11 characters long'),
     signUpController
 );
+router.post('/otp-verify', otpVerifyController );
 
 module.exports = router;
