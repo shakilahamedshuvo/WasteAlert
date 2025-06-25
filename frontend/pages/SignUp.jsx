@@ -70,78 +70,72 @@ const Signup = () => {
 
   
   return (
-    <div className='px-8 flex flex-col h-screen w-full justify-between '>
+    <div className='px-8 bg-[#141F17] flex flex-col h-screen   '>
       <div>
-        <h3 className='text-3xl font-bold text-black pt-8 '>Sign Up</h3>
-        <p className='text-md text-gray-800 pt-2'>Create an account to get started</p>
+        <h1 className='text-white text-[24px] font-bold mt-[72px]'>Create an account</h1>
       </div>
       <div>
-        <form action="" onSubmit={handleSubmit}>
-          <h2 className="mt-4 font-[Gabarito] text-[#1E293B] leading-[22px] text-[20px] font-semibold">What's Your Name?</h2>
-          <div className='flex flex-row gap-4 '>
+        <form action="" className='flex flex-col gap-6' onSubmit={handleSubmit}>
+          <div className='w-full gap-4 flex  mt-4'>
             <input
               type="text"
-              placeholder='First Name'
-              className='w-full mt-4 p-2 border  border-[#9E9E9E] rounded-md focus:outline-black'
+              name="firstName"
+              id="firstName"
+              placeholder="First Name"
+              className='w-1/2 p-[15px] border rounded-[12px] text-[#9CBFA8] font-[16px] border-[#3D5C4A] bg-[#1F2E24] font-["Spline Sans"]'
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
             <input
               type="text"
+              name="lastName"
+              id="lastName"
               placeholder='Last Name'
-              className='w-full mt-4 p-2 border border-[#9E9E9E] rounded-md focus:outline-black'
+              className='w-1/2 p-[15px] border rounded-[12px] text-[#9CBFA8] font-[16px] border-[#3D5C4A] bg-[#1F2E24] font-["Spline Sans"]'
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
-          <h2 className="mt-4 font-[Gabarito] text-[#1E293B] leading-[22px] text-[20px] font-semibold">What's Your Email?</h2>
           <input
             type="email"
+            name="email"
+            id="email"
             placeholder='Email'
-            className='w-full mt-4 p-2 border border-[#9E9E9E] rounded-md focus:outline-black pl-2'
+            className='w-full p-[15px] border rounded-[12px] text-[#9CBFA8] font-[16px] border-[#3D5C4A] bg-[#1F2E24] font-["Spline Sans"]'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-
-          <h2 className="mt-4 font-[Gabarito] text-[#1E293B] leading-[22px] text-[20px] font-semibold">What's Your Phone Number?</h2>
           <input
             type="number"
+            name="phoneNumber"
+            id="phoneNumber"
             placeholder='Phone Number'
-            className='w-full mt-4 p-2 border border-[#9E9E9E] rounded-md focus:outline-black'
+            className='w-full p-[15px] border rounded-[12px] text-[#9CBFA8] font-[16px] border-[#3D5C4A] bg-[#1F2E24] font-["Spline Sans"]'
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
-
-          <h2 className="mt-4 font-[Gabarito] text-[#1E293B] leading-[22px] text-[20px] font-semibold">Enter The Password</h2>
           <input
             type="password"
+            name="password"
+            id="password"
             placeholder='Password'
-            className='w-full mt-4 p-2 border border-[#9E9E9E] rounded-md focus:outline-black'
+            className='w-full p-[15px] border rounded-[12px] text-[#9CBFA8] font-[16px] border-[#3D5C4A] bg-[#1F2E24] font-["Spline Sans"]'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
-          <h2 className="mt-4 font-[Gabarito] text-[#1E293B] leading-[22px] text-[20px] font-semibold">Re-Enter The Password</h2>
           <input
             type="password"
-            placeholder='Re-Enter Password'
-            className='w-full mt-4 p-2 border border-[#9E9E9E] rounded-md focus:outline-black'
+            name="Repassword"
+            id="Repassword"
+            placeholder='Re-enter Password'
+            className='w-full p-[15px] border rounded-[12px] text-[#9CBFA8] font-[16px] border-[#3D5C4A] bg-[#1F2E24] font-["Spline Sans"]'
             value={Repassword}
             onChange={(e) => setRepassword(e.target.value)}
           />
-
-          <div className='flex items-center justify-center w-full mt-4'>
-            <input className='bg-black text-white w-full py-4 rounded-xl' type="submit" value="Sign Up" />
-          </div>
+          <input type="submit" value="Sign Up" className='bg-[#94E0B0]  py-[15px] border rounded-[24px]' />
         </form>
-       
       </div>
-       <div className='flex items-end mb-10 justify-end leading-3'>
-          <p>Alredy Have a Account? </p>
-          <Link to="/login" className='text-border'> Sign In
-          </Link>
-        </div>
     </div>
-  ); }
+  );}
 export default Signup;
 
