@@ -1,9 +1,8 @@
 import React from 'react';
-import startpage_img from '../src/assets/image/startpage_img.jpg';
-import {Button} from '@mui/material'
+
 import { Link } from 'react-router-dom';
-import { FaArrowCircleRight } from "react-icons/fa";
-import Wave from 'react-wavify'
+
+
 import start_bg from '../src/assets/image/start_bg.png'
 const Start = () => {
   return (
@@ -23,7 +22,7 @@ const Start = () => {
         </div>
          <div className=' flex flex-col mt-6 items-center justify-center gap-3 mb-6'>
               <Link to='/signup' className='text-[#141F17] font-bold bg-green-300 px-auto w-4/5 py-4 font-[16px] rounded-[24px] text-center'>Sign Up</Link>
-               <Link to='/signup' className='text-white font-bold bg-[#294033] px-auto w-4/5 py-4 font-[16px] rounded-[24px] text-center'>Login</Link>
+               <Link to='/signup' className='text-white font-bold bg-[#294033] px-auto w-4/5 py-4 text-[16px] rounded-[24px] text-center'>Login</Link>
 
            </div>
     </div>
