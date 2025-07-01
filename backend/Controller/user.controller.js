@@ -15,7 +15,9 @@ module.exports.signUpController = async (req, res, next) => {
         
         const isUserExists = await userModel.findOne({ email: email});
         if(isUserExists){
-            return res.status(409).json({message: 'user already exists with this email'});
+            return res.status(409).json({
+            message: 'user already exists with this email'
+            });
         }
         
         const user = await userModel.create({ firstName, lastName, phoneNumber, email, password: hashedpassword });
